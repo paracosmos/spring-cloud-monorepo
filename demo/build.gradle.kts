@@ -27,6 +27,7 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	implementation(project(":common"))
 }
 
 extra["springCloudVersion"] = "2024.0.0"
