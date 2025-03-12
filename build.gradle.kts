@@ -12,7 +12,4 @@ subprojects {
 		mavenCentral()
 	}
 
-//	dependencies {
-//		implementation(kotlin("stdlib"))
-//	}
 }

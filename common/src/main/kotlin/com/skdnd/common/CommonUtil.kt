@@ -1,4 +1,4 @@
-package com.example.common
+package com.skdnd.common
 
 object CommonUtil {
 	fun sayHi(): String {

@@ -1,4 +1,4 @@
-package com.example.gateway
+package com.skdnd.gateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
