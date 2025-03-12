@@ -1,5 +1,5 @@
 plugins {
-	kotlin("jvm") version "1.9.25"
+	kotlin("jvm")
 }
 
 group = "com.example"
@@ -15,9 +15,9 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
-	implementation("org.jetbrains.kotlin:kotlin-stdlib")
-}
+//dependencies {
+//	implementation("org.jetbrains.kotlin:kotlin-stdlib")
+//}
 
 kotlin {
 	compilerOptions {
