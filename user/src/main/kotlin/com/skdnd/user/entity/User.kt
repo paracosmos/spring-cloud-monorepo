@@ -1,5 +1,6 @@
 package com.skdnd.user.entity
 
+import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Table
 
 /*
@@ -11,9 +12,13 @@ CREATE TABLE users (
 );
  */
 
-object User : Table("users") {
-    val id = integer("id").autoIncrement()
-    override val primaryKey = PrimaryKey(id)
+object Users : IntIdTable("users") {
     val name = varchar("name", 255)
     val password = varchar("password", 255)
 }
+
+data class User(
+    val id: Int,
+    val name: String,
+    val password: String
+)

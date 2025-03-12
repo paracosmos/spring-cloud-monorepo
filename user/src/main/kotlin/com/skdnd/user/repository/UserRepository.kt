@@ -1,34 +1,25 @@
 package com.skdnd.user.repository
 
-import com.skdnd.user.entity.User
+import com.skdnd.user.entity.*
+import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.transactions.transaction
+import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.springframework.stereotype.Repository
 
 @Repository
 class UserRepository {
 
-    fun addUser(name: String, password: String): Int {
-        return transaction {
-            User.insert {
-                it[User.name] = name
-                it[User.password] = password
-            } get User.id
-        }
+    suspend fun getUserById(id: Int): User? = newSuspendedTransaction(Dispatchers.IO) {
+        Users.selectAll().where { Users.id eq id }
+            .map { row -> User(row[Users.id].value, row[Users.name], row[Users.password]) }
+            .singleOrNull()
     }
 
-    fun getUserById(userId: Int): ResultRow? {
-        return transaction {
-            User.select { User.id eq userId }.singleOrNull()
-        }
-    }
-
-    fun updateUserPassword(userId: Int, newPassword: String): Int {
-        return transaction {
-            User.update({ User.id eq userId }) {
-                it[password] = newPassword
-            }
-        }
+    suspend fun addUser(name: String, password: String): Int = newSuspendedTransaction(Dispatchers.IO) {
+        Users.insertAndGetId {
+            it[Users.name] = name
+            it[Users.password] = password
+        }.value
     }
 
 }

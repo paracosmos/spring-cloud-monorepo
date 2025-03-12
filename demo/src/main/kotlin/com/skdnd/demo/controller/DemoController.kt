@@ -1,4 +1,4 @@
-package com.skdnd.demo
+package com.skdnd.demo.controller
 
 import com.skdnd.common.CommonUtil
 import org.springframework.web.bind.annotation.*
