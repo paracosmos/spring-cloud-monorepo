@@ -25,8 +25,16 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
+	// Eureka
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	// Exposed
+	implementation("org.jetbrains.exposed:exposed-core:0.48.0")
+	implementation("org.jetbrains.exposed:exposed-dao:0.48.0")
+	implementation("org.jetbrains.exposed:exposed-jdbc:0.48.0")
+	implementation("org.jetbrains.exposed:exposed-java-time:0.48.0")
+	implementation("org.jetbrains.exposed:exposed-spring-boot-starter:0.48.0")
+	// MySQL
+	implementation("mysql:mysql-connector-java:8.0.33")
 }
 
 extra["springCloudVersion"] = "2024.0.0"
