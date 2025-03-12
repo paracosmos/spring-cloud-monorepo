@@ -3,17 +3,18 @@ package com.skdnd.demo
 import com.skdnd.common.CommonUtil
 import org.springframework.web.bind.annotation.*
 
+
 @RestController
 @RequestMapping("/demo")
 class DemoController {
 
   @GetMapping
-  fun getDemo(): String {
+  suspend fun getDemo(): String {
     return CommonUtil.sayHi()
   }
 
   @GetMapping("/{id}")
-  fun getDemoDetails(
+  suspend fun getDemoDetails(
     @PathVariable id: String,
     @RequestParam(required = false) queryParam: String?,
     @RequestHeader(value = "headerParam", required = false) headerParam: String?
@@ -22,7 +23,7 @@ class DemoController {
   }
 
   @PostMapping
-  fun postDemo(
+  suspend fun postDemo(
     @RequestBody body: Map<String, Any>,
     @RequestHeader(value = "headerParam", required = false) headerParam: String?
   ): String {

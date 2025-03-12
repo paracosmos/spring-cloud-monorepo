@@ -6,6 +6,9 @@ plugins {
 }
 
 subprojects {
+
+	extra["springCloudVersion"] = "2024.0.0"
+
 	apply(plugin = "org.jetbrains.kotlin.jvm")
 
 	repositories {

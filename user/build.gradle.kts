@@ -5,7 +5,7 @@ plugins {
 	id("io.spring.dependency-management")
 }
 
-group = "com.example"
+group = "com.skdnd.user"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -14,13 +14,11 @@ java {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
-
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -37,7 +35,6 @@ dependencies {
 	implementation("mysql:mysql-connector-java:8.0.33")
 }
 
-extra["springCloudVersion"] = "2024.0.0"
 
 dependencyManagement {
 	imports {

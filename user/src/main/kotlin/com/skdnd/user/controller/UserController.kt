@@ -13,12 +13,12 @@ class UserController(
 ) {
 
   @GetMapping
-  fun getUser(): String {
+  suspend fun getUser(): String {
     return "Hello, this is a user!"
   }
 
   @GetMapping("/{id}")
-  fun getUserById(@PathVariable id: Int): Map<String, Any?> {
+  suspend fun getUserById(@PathVariable id: Int): Map<String, Any?> {
     val user = repository.getUserById(id) ?: throw ResponseStatusException(
       HttpStatus.NOT_FOUND, "User not found"
     )
@@ -30,7 +30,7 @@ class UserController(
   }
 
   @PostMapping
-  fun addUser(@RequestBody request: Map<String, String>): Int {
+  suspend fun addUser(@RequestBody request: Map<String, String>): Int {
     val name = request["name"] ?: throw IllegalArgumentException("Name is required")
     val password = request["password"] ?: throw IllegalArgumentException("Password is required")
     return repository.addUser(name, password)
