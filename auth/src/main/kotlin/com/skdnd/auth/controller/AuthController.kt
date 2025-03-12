@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 class AuthController(private val userService: UserService) {
 
   @GetMapping
-  suspend fun getDemo(): String {
+  suspend fun getAuth(): String {
     return "auth"
   }
 
