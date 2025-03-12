@@ -1,4 +1,4 @@
-package com.skdnd.demo
+package com.skdnd.demo.controller
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
