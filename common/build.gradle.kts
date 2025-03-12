@@ -15,9 +15,10 @@ repositories {
 	mavenCentral()
 }
 
-//dependencies {
+dependencies {
 //	implementation("org.jetbrains.kotlin:kotlin-stdlib")
-//}
+	implementation(kotlin("stdlib"))
+}
 
 kotlin {
 	compilerOptions {
